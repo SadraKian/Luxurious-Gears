@@ -5,8 +5,8 @@ import Link from "next/link";
 function Footer() {
   return (
     <footer className="flex flex-col border-t border-gray-700 mt-5 text-black-100">
-      <div className="flex flex-wrap justify-between max-md:flex-col sm:px-16 px-6 gap-5 py-10">
-        <div className="flex flex-col justify-start items-start gap-6">
+      <div className="flex flex-wrap justify-between max-md:flex-col sm:px-16 px-6 gap-3 py-10">
+        <div className="flex flex-col justify-start items-start gap-4">
           <div className="flex justify-center items-center">
             <Image
               src="/logo.png"
@@ -19,7 +19,7 @@ function Footer() {
               Luxurious Gears
             </h3>
           </div>
-          <p className="text-base text-gray-300">
+          <p className="text-base text-gray-300 ml-4">
             Luxurious Gears
             <br />
             All right reserved &copy;

@@ -18,7 +18,7 @@
 
 /* START: General styles */
 .max-width {
-  @apply max-w-[1440px] mx-auto;
+  @apply max-w-[1600px] mx-auto;
 }
 
 .padding-x {
@@ -92,8 +92,9 @@
 /* END: Home styles */
 
 /* START: Car Card styles */
+
 .car-card {
-  @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
+  @apply flex flex-col p-6 justify-center items-start bg-gradient-to-br  from-[#f8cf77] to-[#3677FF] text-slate-800 hover:shadow-md rounded-3xl;
 }
 
 .car-card__content {
