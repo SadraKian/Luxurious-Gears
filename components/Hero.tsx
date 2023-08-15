@@ -15,7 +15,7 @@ function Hero() {
         </p>
         <CustomButton
           title="Explore Cars"
-          containerStyles="button-primary-color rounded-full mt-10 text-white"
+          containerStyles="bg-primary rounded-full mt-10 text-white"
           handleClick={handleScroll}
         />
       </div>
