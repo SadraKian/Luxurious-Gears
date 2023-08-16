@@ -14,6 +14,11 @@ function CarCard({ car }: CardProps) {
   const carRent = calculateRentPrice(make, city_mpg, year);
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <section className="car-card group">
       <div className="car-card__content ">
@@ -65,7 +70,7 @@ function CarCard({ car }: CardProps) {
           />
         </div>
       </div>
-      <CarDetails isOpen={isOpen} car={car} closeModal={() => {}} />
+      <CarDetails isOpen={isOpen} car={car} closeModal={closeModal} />
     </section>
   );
 }

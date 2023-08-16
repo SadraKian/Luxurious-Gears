@@ -6,7 +6,7 @@ export const fetchCars = async () => {
 
   try {
     const response = await fetch(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=lamborghini",
+      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=aventador",
       {
         method: "GET",
         headers: headers,
@@ -19,19 +19,20 @@ export const fetchCars = async () => {
   }
 };
 
-const hyperCars = ["lamborghini", "ferrari", "rolls-royce"];
+const bugatti = "bugatti";
 
-const highLevelCars = [
-  "mercedes-benz",
-  "jaguar",
-  "tesla",
-  "lincoln",
-  "maserati",
-  "porsche",
-  "aston-martin",
+const hyperCars = ["lamborghini", "ferrari", "mclaren", "aston-martin"];
+
+const highLevelCars = ["mercedes-benz", "maserati", "porsche", "rolls-royce"];
+
+const midLevelCars = [
   "audi",
   "bentley",
   "bmw",
+  "jaguar",
+  "tesla",
+  "lincoln",
+  "bentley",
 ];
 
 export const calculateRentPrice = (
@@ -40,12 +41,17 @@ export const calculateRentPrice = (
   year: number
 ) => {
   const getModelPrice = (make: string) => {
-    if (hyperCars.includes(make)) {
-      return 220;
-    } else if (highLevelCars.includes(make)) {
-      return 150;
+    if (make === bugatti) {
+      return 2600;
     }
-    return 50;
+    if (hyperCars.includes(make)) {
+      return 1020;
+    } else if (highLevelCars.includes(make)) {
+      return 420;
+    } else if (midLevelCars.includes(make)) {
+      return 200;
+    }
+    return 75;
   };
   const ageFactor = 0.5;
   const modelPricePerDay = getModelPrice(make);
