@@ -28,3 +28,21 @@ interface CarProps {
   transmission: string;
   year: number;
 }
+
+interface filterProps {
+  manufacturer: string;
+  year: number;
+  fuel: string;
+  limit: number;
+  model: string;
+}
+
+interface OptionProps {
+  title: string;
+  value: string;
+}
+
+interface CustomFilterProps {
+  title: string;
+  options: OptionProps;
+}

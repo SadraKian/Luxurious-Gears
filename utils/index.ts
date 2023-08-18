@@ -1,17 +1,21 @@
-export const fetchCars = async () => {
+import { CarProps } from "@/types";
+import { filterProps } from "@/types";
+
+export const fetchCars = async (filters: filterProps) => {
+  const { manufacturer, year, fuel, limit, model } = filters;
+  const url = new URL(
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&year=${year}&limit=${limit}&model=${model}&fuel_type=${fuel}`
+  );
   const headers = {
-    "X-RapidAPI-Key": "efd660bbfemsh2bbd8078c2d7473p158a7ajsnb84b16f0f384",
+    "X-RapidAPI-Key": process.env.RAPID_API_KEY || "",
     "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
   };
 
   try {
-    const response = await fetch(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=aventador",
-      {
-        method: "GET",
-        headers: headers,
-      }
-    );
+    const response = await fetch(url, {
+      method: "GET",
+      headers: headers,
+    });
     const cars = await response.json();
     return cars;
   } catch (error) {
@@ -21,9 +25,15 @@ export const fetchCars = async () => {
 
 const bugatti = "bugatti";
 
-const hyperCars = ["lamborghini", "ferrari", "mclaren", "aston-martin"];
+const hyperCars = [
+  "lamborghini",
+  "ferrari",
+  "mclaren",
+  "aston martin",
+  "mercedes-benz",
+];
 
-const highLevelCars = ["mercedes-benz", "maserati", "porsche", "rolls-royce"];
+const highLevelCars = ["maserati", "porsche", "rolls-royce"];
 
 const midLevelCars = [
   "audi",
@@ -47,7 +57,7 @@ export const calculateRentPrice = (
     if (hyperCars.includes(make)) {
       return 1020;
     } else if (highLevelCars.includes(make)) {
-      return 420;
+      return 720;
     } else if (midLevelCars.includes(make)) {
       return 200;
     }
@@ -64,4 +74,20 @@ export const calculateRentPrice = (
   const rentPricePerDay = modelPricePerDay - agePrice - distancePrice;
 
   return rentPricePerDay;
+};
+
+export const generateCarImageUrl = (car: CarProps, angle?: string) => {
+  const url = new URL("https://cdn.imagin.studio/getimage");
+
+  const { make, year, model } = car;
+
+  url.searchParams.append("customer", "hrjavascript-mastery");
+  url.searchParams.append("make", make);
+  url.searchParams.append("year", `${year}`);
+  url.searchParams.append("modelFamily", model.split(" ")[0]);
+  url.searchParams.append("make", make);
+  url.searchParams.append("zoomType", "fullscreen");
+  url.searchParams.append("angle", `${angle}`);
+
+  return `${url}`;
 };

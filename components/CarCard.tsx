@@ -2,7 +2,7 @@
 import { CarDetails, CustomButton } from ".";
 import Image from "next/image";
 import { CarProps } from "@/types";
-import { calculateRentPrice } from "@/utils";
+import { calculateRentPrice, generateCarImageUrl } from "@/utils";
 import { useState } from "react";
 
 interface CardProps {
@@ -19,6 +19,8 @@ function CarCard({ car }: CardProps) {
     setIsOpen((prev) => !prev);
   };
 
+  console.log(make);
+
   return (
     <section className="car-card group">
       <div className="car-card__content ">
@@ -33,7 +35,7 @@ function CarCard({ car }: CardProps) {
       </p>
       <div className="relative w-full h-40 object-contain my-3">
         <Image
-          src="/car-placeholder.png"
+          src={generateCarImageUrl(car)}
           className="object-contain"
           fill
           alt={make}

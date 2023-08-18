@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import Image from "next/image";
 import { Transition, Dialog } from "@headlessui/react";
 import { CarProps } from "@/types";
+import { generateCarImageUrl } from "@/utils";
 
 interface CarDetailsProps {
   isOpen: boolean;
@@ -54,7 +55,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                   <div className="flex-1 flex flex-col gap-3">
                     <div className="relative h-40 bg-pattern bg-cover bg-center rounded-lg">
                       <Image
-                        src="/hero.png"
+                        src={generateCarImageUrl(car)}
                         className="object-contain"
                         fill
                         alt="Car"
@@ -63,7 +64,15 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     <div className="flex gap-3">
                       <div className="bg-primary-blue-100 flex-1 relative rounded-lg w-full h-24">
                         <Image
-                          src="/car-placeholder.png"
+                          src={generateCarImageUrl(car, "29")}
+                          className="object-contain"
+                          fill
+                          alt="Car"
+                        />
+                      </div>
+                      <div className="bg-primary-blue-100  flex-1 relative rounded-lg w-full h-24">
+                        <Image
+                          src={generateCarImageUrl(car, "33")}
                           className="object-contain"
                           fill
                           alt="Car"
@@ -71,15 +80,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       </div>
                       <div className="bg-primary-blue-100 flex-1 relative rounded-lg w-full h-24">
                         <Image
-                          src="/car-placeholder.png"
-                          className="object-contain"
-                          fill
-                          alt="Car"
-                        />
-                      </div>
-                      <div className="bg-primary-blue-100 flex-1 relative rounded-lg w-full h-24">
-                        <Image
-                          src="/car-placeholder.png"
+                          src={generateCarImageUrl(car, "13")}
                           className="object-contain"
                           fill
                           alt="Car"

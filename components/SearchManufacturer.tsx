@@ -17,8 +17,8 @@ function SearchManufacturer({
       : manufacturers.filter((item) =>
           item
             .toLowerCase()
-            .replace(/\s+/g, "")
-            .includes(query.toLowerCase().replace(/\s+/g, ""))
+            .replace(" ", "")
+            .includes(query.toLowerCase().replace(" ", ""))
         );
 
   return (
@@ -46,7 +46,7 @@ function SearchManufacturer({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
             afterLeave={() => setQuery("")}>
-            <Combobox.Options className="search-manufacturer__options static">
+            <Combobox.Options className="search-manufacturer__options static z-20">
               {filteredManufacturers.length === 0 && query !== "" ? (
                 <Combobox.Option
                   value={query}
