@@ -19,8 +19,6 @@ function CarCard({ car }: CardProps) {
     setIsOpen((prev) => !prev);
   };
 
-  console.log(make);
-
   return (
     <section className="car-card group">
       <div className="car-card__content ">

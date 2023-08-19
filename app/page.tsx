@@ -2,12 +2,12 @@ import { Hero, SearchBar, CustomFilter, CarCard } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 import { useSearchParams } from "next/navigation";
-export default async function Home({ searchParams }) {
+export default async function Home({ searchParams }: any) {
   const allCars = await fetchCars({
-    manufacturer: searchParams.manufacture || "",
+    make: searchParams.make || "",
     year: searchParams.year || 2022,
-    fuel: searchParams.fuel || "",
-    limit: searchParams.limit || 10,
+    fuel_type: searchParams.fuel || "",
+    limit: searchParams.limit || 12,
     model: searchParams.model || "",
   });
 
@@ -27,8 +27,8 @@ export default async function Home({ searchParams }) {
           <SearchBar />
 
           <div className="home__filter-container">
-            <CustomFilter title="fuel" options={fuels} />
-            <CustomFilter title="year" options={yearsOfProduction} />
+            <CustomFilter title="Fuel" options={fuels} />
+            <CustomFilter title="Year" options={yearsOfProduction} />
           </div>
         </div>
 

@@ -30,9 +30,9 @@ interface CarProps {
 }
 
 interface filterProps {
-  manufacturer: string;
+  make: string;
   year: number;
-  fuel: string;
+  fuel_type: string;
   limit: number;
   model: string;
 }
@@ -44,5 +44,5 @@ interface OptionProps {
 
 interface CustomFilterProps {
   title: string;
-  options: OptionProps;
+  options: OptionProps[];
 }

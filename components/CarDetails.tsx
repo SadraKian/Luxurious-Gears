@@ -25,7 +25,8 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
             enterTo="opacity-100"
             leave="duration-200 ease-in"
             leaveFrom="opacity-100"
-            leaveTo="opacity-0">
+            leaveTo="opacity-0"
+          >
             <div className="fixed bg-black bg-opacity-25 inset-0" />
           </Transition.Child>
           <div className="fixed overflow-y-auto inset-0">
@@ -37,12 +38,14 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                 enterTo="opacity-100 scale-100"
                 leave="duration-200 ease-in "
                 leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-90">
-                <Dialog.Panel className="w-full relative min-h-[90vh] shadow-xl flex flex-col text-left transform transition-all p-6 gap-6 max-w-lg rounded-2xl bg-slate-200 ">
+                leaveTo="opacity-0 scale-90"
+              >
+                <Dialog.Panel className="w-full relative min-h-[90vh] shadow-xl flex flex-col text-left transform transition-all p-6 gap-6 max-w-lg rounded-2xl bg-gradient-to-bl from-[#93A5CF] to-[#E4EfE9]">
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="bg-white rounded-full absolute z-10 top-2 right-2 w-fit p-3 ">
+                    className="bg-white rounded-full absolute z-10 top-2 right-2 w-fit p-2 "
+                  >
                     <Image
                       src="/close.svg"
                       width={20}
@@ -53,7 +56,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     />
                   </button>
                   <div className="flex-1 flex flex-col gap-3">
-                    <div className="relative h-40 bg-pattern bg-cover bg-center rounded-lg">
+                    <div className="relative h-40 bg-[url('/car-details-img-bg.jpg')] bg-cover bg-center rounded-lg">
                       <Image
                         src={generateCarImageUrl(car)}
                         className="object-contain"
@@ -89,12 +92,12 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     </div>
                   </div>
                   <div className="flex flex-col flex-1 gap-2">
-                    <h2 className="font-semibold text-xl capitalize">
+                    <h2 className="font-semibold text-xl text-gray-900 capitalize">
                       {car.make} {car.model}
                     </h2>
                     <div className="flex flex-wrap mt-3 gap-4  ">
                       {carEntries.map(([key, value]) => (
-                        <div className="flex justify-between w-full gap-5 text-right text-gray-700">
+                        <div className="flex justify-between w-full gap-5 text-right text-slate-900">
                           <h4 className="text-gray capitalize">
                             {key.split("_").join(" ")}
                           </h4>

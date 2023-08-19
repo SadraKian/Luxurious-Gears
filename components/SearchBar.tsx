@@ -35,9 +35,9 @@ function SearchBar() {
     const searchParams = new URLSearchParams(window.location.pathname);
 
     if (manufacturer) {
-      searchParams.set("manufacturer", manufacturer);
+      searchParams.set("make", manufacturer);
     } else {
-      searchParams.delete("manufacturer");
+      searchParams.delete("make");
     }
 
     if (model) {
