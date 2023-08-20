@@ -46,3 +46,9 @@ interface CustomFilterProps {
   title: string;
   options: OptionProps[];
 }
+
+interface PaginationProps {
+  carPages: CarProps[][];
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+}

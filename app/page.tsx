@@ -1,13 +1,14 @@
-import { Hero, SearchBar, CustomFilter, CarCard } from "@/components";
+import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
+import Discover from "@/components/Discover";
 import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
-import { useSearchParams } from "next/navigation";
+
 export default async function Home({ searchParams }: any) {
   const allCars = await fetchCars({
     make: searchParams.make || "",
     year: searchParams.year || 2022,
     fuel_type: searchParams.fuel || "",
-    limit: searchParams.limit || 12,
+    limit: searchParams.limit || 60,
     model: searchParams.model || "",
   });
 
@@ -33,17 +34,11 @@ export default async function Home({ searchParams }: any) {
         </div>
 
         {!isDataEmpty ? (
-          <section>
-            <div className="home__cars-wrapper">
-              {allCars.map((car) => (
-                <CarCard car={car} />
-              ))}
-            </div>
-          </section>
+          <Discover cars={allCars} />
         ) : (
           <section className="home__error-container">
-            <h2 className="font-bold text-black-text-xl">
-              oops there was an error loading the cars
+            <h2 className="font-bold text-white text-xl">
+              oops no results <span className="text-red-600 text-2xl">!</span>
             </h2>
             <p>{allCars?.message}</p>
           </section>

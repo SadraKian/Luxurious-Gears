@@ -67,9 +67,9 @@ export const calculateRentPrice = (
     } else if (highLevelCars.includes(make)) {
       return 720;
     } else if (midLevelCars.includes(make)) {
-      return 200;
+      return 350;
     }
-    return 75;
+    return 100;
   };
   const ageFactor = 0.5;
   const modelPricePerDay = getModelPrice(make);
@@ -81,7 +81,7 @@ export const calculateRentPrice = (
 
   const rentPricePerDay = modelPricePerDay - agePrice - distancePrice;
 
-  return rentPricePerDay;
+  return rentPricePerDay.toFixed(2);
 };
 
 export const generateCarImageUrl = (car: CarProps, angle?: string) => {
@@ -101,11 +101,11 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
 };
 
 export const updateSearchParams = (type: string, value: string) => {
-  const searchParams = new URLSearchParams(window.location.pathname);
+  const searchParams = new URLSearchParams(window.location.search);
 
   searchParams.set(type, value.toLowerCase());
 
-  const newPathName = `${window.location.pathname}?${searchParams}`;
+  const newPathName = `${window.location.pathname}?${searchParams.toString()}`;
 
   return newPathName;
 };

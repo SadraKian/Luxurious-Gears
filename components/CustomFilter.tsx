@@ -11,13 +11,13 @@ function CustomFilter({ title, options }: CustomFilterProps) {
   const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
 
-  const handleUpdateFilter = (e: { title: string; value: string }) => {
+  const handleUpdateParams = (e: { title: string; value: string }) => {
     const newPathname = updateSearchParams(
       title.toLowerCase(),
       e.value.toLowerCase()
     );
 
-    router.push(newPathname);
+    router.push(newPathname, { scroll: false });
   };
 
   return (
@@ -25,10 +25,9 @@ function CustomFilter({ title, options }: CustomFilterProps) {
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e);
-          handleUpdateFilter(e);
-        }}
-      >
+          setSelected(e); // Update the selected option in state
+          handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
+        }}>
         <div className="relative z-10 w-fit">
           <Listbox.Button className="custom-filter__btn">
             <span>{selected.title}</span>
@@ -42,26 +41,24 @@ function CustomFilter({ title, options }: CustomFilterProps) {
           </Listbox.Button>
           <Transition
             as={Fragment}
-            leave="transition-all ease-out duration-300"
+            leave="transition-all ease-in duration-500"
             leaveFrom="opacity-0"
-            leaveTo="opacity-100"
-          >
+            leaveTo="opacity-100">
             <Listbox.Options className="custom-filter__options">
               {options.map((option) => (
                 <Listbox.Option
-                  value={option.value}
+                  key={option.title}
+                  value={option}
                   className={({ active }) =>
                     `py-2 px-4 cursor-default select-none ${
                       active ? "bg-primary text-white" : "text-gray-900"
                     }`
-                  }
-                >
+                  }>
                   {({ selected }) => (
                     <span
                       className={`block truncate ${
                         selected ? "font-bold" : "font-medium"
-                      }`}
-                    >
+                      }`}>
                       {option.title}
                     </span>
                   )}

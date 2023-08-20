@@ -58,7 +58,7 @@ function CarCard({ car }: CardProps) {
           </div>
           <div className="flex flex-col justify-center items-center gap-2">
             <Image src="/gas.svg" width={20} height={20} alt="Steering wheel" />
-            <p className="text-14px">{fuel_type}</p>
+            <p className="text-14px">{city_mpg} MPG</p>
           </div>
         </div>
         <div className="car-card__btn-container">
