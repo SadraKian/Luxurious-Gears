@@ -21,8 +21,8 @@ const Discover = ({ cars }: any) => {
   return (
     <section>
       <div className="home__cars-wrapper">
-        {carPages[currentpage].map((car: CarProps) => (
-          <CarCard car={car} />
+        {carPages[currentpage].map((car: CarProps,index) => (
+          <CarCard key={`Car-${index}`} car={car} />
         ))}
       </div>
       <Pagination
