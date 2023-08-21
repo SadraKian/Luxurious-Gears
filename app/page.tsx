@@ -1,5 +1,4 @@
-import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
-import Discover from "@/components/Discover";
+import { CustomFilter, Hero, SearchBar, Discover } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 

@@ -8,57 +8,62 @@ const Pagination = ({
   currentPage,
   setCurrentPage,
 }: PaginationProps) => {
-  const [activeBtn, setActiveBtn] = useState(0);
+  const [activeBtn, setActiveBtn] = useState(1);
 
   const handleClick = (index: number) => {
-    setCurrentPage(index - 1);
-    setActiveBtn(index - 1);
+    setCurrentPage(index);
+    setActiveBtn(index + 1);
   };
   return (
     <div className="flex gap-4 w-full justify-center mt-12">
-      <button
-        type="button"
-        onClick={() => {
-          setActiveBtn((prev) => prev - 1);
-          setCurrentPage((prev) => prev - 1);
-        }}
-        className="bg-[#5b86e5] grid place-content-center w-10 h-10 text-white rounded-md">
-        <Image
-          src="/angle-left.png"
-          alt="angle-left"
-          className="object-contain"
-          width={20}
-          height={20}
-        />
-      </button>
+      {carPages.length > 1 && currentPage > 0 && (
+        <button
+          type="button"
+          onClick={() => {
+            setActiveBtn((prev) => prev - 1);
+            setCurrentPage((prev) => prev - 1);
+          }}
+          className="bg-[#5b86e5] grid place-content-center w-10 h-10 text-white rounded-md hover:brightness-125 transition-all ease duration-400">
+          <Image
+            src="/angle-left.png"
+            alt="angle-left"
+            className="object-contain"
+            width={20}
+            height={20}
+          />
+        </button>
+      )}
+
       {carPages.map((page, index) => (
         <button
           key={index}
           type="button"
           onClick={() => handleClick(index)}
           className={`${
-            index++ === activeBtn
-              ? "bg-gradient-to-br from-[#36d1dc] to-[#5b86e5]"
-              : "bg-slate-800"
-          } grid place-content-center w-10 h-10 text-white rounded-md`}>
-          {index}
+            index + 1 === activeBtn
+              ? "bg-gradient-to-br from-[#36d1dc] to-[#5b86e5]  "
+              : "bg-slate-800 "
+          } grid place-content-center w-10 h-10 text-white rounded-md hover:brightness-125 transition-all ease duration-400`}>
+          {index + 1}
         </button>
       ))}
-      <button
-        type="button"
-        onClick={() => {
-          setActiveBtn((prev) => prev + 1);
-          setCurrentPage((prev) => prev + 1);
-        }}
-        className="bg-[#5b86e5] grid place-content-center w-10 h-10 text-white rounded-md">
-        <Image
-          src="/angle-right.png"
-          alt="angle-right"
-          className="object-contain"
-          width={20}
-          height={20}
-        />
-      </button>
+      {carPages.length > 1 && currentPage !== carPages.length - 1 && (
+        <button
+          type="button"
+          onClick={() => {
+            setActiveBtn((prev) => prev + 1);
+            setCurrentPage((prev) => prev + 1);
+          }}
+          className="bg-[#5b86e5] grid place-content-center w-10 h-10 text-white rounded-md hover:brightness-125 transition-all ease duration-400">
+          <Image
+            src="/angle-right.png"
+            alt="angle-right"
+            className="object-contain"
+            width={20}
+            height={20}
+          />
+        </button>
+      )}
     </div>
   );
 };
