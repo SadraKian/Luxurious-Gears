@@ -11,6 +11,18 @@
   font-family: "Manrope", sans-serif;
 }
 
+/* Loader animation */
+
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-spin {
+  animation: loaderSpin 3s linear infinite;
+}
+
 /* Button styles */
 .bg-primary {
   @apply bg-gradient-to-r from-[#D34FFC] to-[#6538F2];

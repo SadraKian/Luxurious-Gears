@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { SearchManufacturer } from ".";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { SearchBarProps } from "@/types";
 
 export const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
   return (
@@ -18,39 +18,18 @@ export const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
   );
 };
 
-function SearchBar() {
-  const router = useRouter();
+function SearchBar({ setMake, setModel }: SearchBarProps) {
   const [manufacturer, setManufacturer] = useState("");
-  const [model, setModel] = useState("");
+  const [carModel, setCarModel] = useState("");
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (manufacturer === "" && model === "") {
+    if (manufacturer === "" && carModel === "") {
       return alert("Please fill the searchBar");
     }
-    updateSearchParams(manufacturer.toLowerCase(), model.toLowerCase());
-  };
 
-  const updateSearchParams = (manufacturer: string, model: string) => {
-    const searchParams = new URLSearchParams(window.location.pathname);
-
-    if (manufacturer) {
-      searchParams.set("make", manufacturer);
-    } else {
-      searchParams.delete("make");
-    }
-
-    if (model) {
-      searchParams.set("model", model);
-    } else {
-      searchParams.delete("model");
-    }
-
-    const newPathname = `${
-      window.location.pathname
-    }?${searchParams.toString()}`;
-
-    router.push(newPathname, { scroll: false });
+    setMake(manufacturer);
+    setModel(carModel);
   };
 
   return (
@@ -74,8 +53,8 @@ function SearchBar() {
         <input
           type="text"
           name="model"
-          value={model}
-          onChange={(e) => setModel(e.target.value)}
+          value={carModel}
+          onChange={(e) => setCarModel(e.target.value)}
           placeholder="Maybach"
           className="searchbar__input"
         />

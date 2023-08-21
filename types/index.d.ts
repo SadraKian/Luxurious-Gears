@@ -1,5 +1,7 @@
 import { MouseEventHandler } from "react";
 
+type CarState = CarProps[] & { message?: string };
+
 interface CustomButtonProps {
   title: String;
   containerStyles?: string;
@@ -42,9 +44,15 @@ interface OptionProps {
   value: string;
 }
 
+interface SearchBarProps {
+  setMake: Dispatch<SetStateAction<string>>;
+  setModel: Dispatch<SetStateAction<string>>;
+}
+
 interface CustomFilterProps {
   title: string;
   options: OptionProps[];
+  setFilter: Dispatch<SetStateAction<string>>;
 }
 
 interface PaginationProps {

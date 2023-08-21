@@ -11,7 +11,7 @@ export const fetchCars = async (filters: filterProps) => {
   const url = new URL(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars`);
 
   const headers = {
-    "X-RapidAPI-Key": process.env.RAPID_API_KEY || "",
+    "X-RapidAPI-Key": "Enter your own Rapid API KEY",
     "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
   };
 

@@ -4,29 +4,16 @@ import { Listbox, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { CustomFilterProps, OptionProps } from "@/types";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { updateSearchParams } from "@/utils";
 
-function CustomFilter({ title, options }: CustomFilterProps) {
-  const router = useRouter();
+function CustomFilter({ title, options, setFilter }: CustomFilterProps) {
   const [selected, setSelected] = useState(options[0]);
-
-  const handleUpdateParams = (e: { title: string; value: string }) => {
-    const newPathname = updateSearchParams(
-      title.toLowerCase(),
-      e.value.toLowerCase()
-    );
-
-    router.push(newPathname, { scroll: false });
-  };
-
   return (
     <div className="w-fit">
       <Listbox
         value={selected}
         onChange={(e) => {
-          setSelected(e); // Update the selected option in state
-          handleUpdateParams(e); // Update the URL search parameters and navigate to the new URL
+          setSelected(e);
+          setFilter(selected.value);
         }}>
         <div className="relative z-10 w-fit">
           <Listbox.Button className="custom-filter__btn">
