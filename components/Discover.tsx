@@ -1,34 +1,48 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CarCard, Pagination } from ".";
-import { CarProps } from "@/types";
+import { CarProps, CarState } from "@/types";
 
 const Discover = ({ cars }: any) => {
-  const [currentpage, setCurrentpage] = useState(0);
+  const [carPages, setCarPages] = useState<CarProps[][]>([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const carsPerPage = 12;
 
-  const creatCarsPages = (cars: [], carsPerPage: number): [] => {
-    let result = [];
+  const createCarsPages = (
+    cars: CarState,
+    carsPerPage: number
+  ): CarProps[][] => {
+    let result: CarProps[][] = [];
     for (let i = 0; i < cars.length; i += carsPerPage) {
-      const pageCars = cars.slice(i, i + carsPerPage);
-      result.push(pageCars);
+      const carsPage = cars.slice(i, i + carsPerPage);
+      result.push(carsPage);
     }
-    return result as [];
+    return result;
   };
 
-  const carPages: CarProps[][] = creatCarsPages(cars, carsPerPage);
+  useEffect(() => {
+    setCarPages(createCarsPages(cars, carsPerPage)); // Update carPages when cars change
+    setCurrentPage(0); // Reset currentPage to 0 when cars change
+  }, [cars, carsPerPage]);
+
+  useEffect(() => {
+    if (currentPage >= carPages.length && carPages.length > 0) {
+      setCurrentPage(carPages.length - 1);
+    }
+  }, [currentPage, carPages]);
 
   return (
     <section>
       <div className="home__cars-wrapper">
-        {carPages[currentpage].map((car: CarProps,index) => (
-          <CarCard key={`Car-${index}`} car={car} />
-        ))}
+        {carPages.length > 0 &&
+          carPages[currentPage].map((car: CarProps, index) => (
+            <CarCard key={`Car-${index}`} car={car} />
+          ))}
       </div>
       <Pagination
         carPages={carPages}
-        currentPage={currentpage}
-        setCurrentPage={setCurrentpage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
     </section>
   );
