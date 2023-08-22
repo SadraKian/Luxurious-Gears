@@ -10,6 +10,10 @@ const Pagination = ({
 }: PaginationProps) => {
   const [activeBtn, setActiveBtn] = useState(1);
 
+  useEffect(() => {
+    setActiveBtn(1);
+  }, [carPages]);
+  
   const handleClick = (index: number) => {
     setCurrentPage(index);
     setActiveBtn(index + 1);
