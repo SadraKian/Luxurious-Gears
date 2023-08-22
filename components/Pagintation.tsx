@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { PaginationProps } from "@/types";
 
@@ -9,6 +9,10 @@ const Pagination = ({
   setCurrentPage,
 }: PaginationProps) => {
   const [activeBtn, setActiveBtn] = useState(1);
+
+  useEffect(() => {
+    setActiveBtn(1);
+  }, [carPages]);
 
   const handleClick = (index: number) => {
     setCurrentPage(index);
