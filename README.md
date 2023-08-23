@@ -32,7 +32,7 @@ Luxurious Gears is a premier platform I've meticulously designed and developed t
 
 ## Technologies Used
 
-<img src="https://skillicons.dev/icons?i=next,react,typescript,tjavascript,tailwind,html,css,nodejs" /><br><br>
+<img src="https://skillicons.dev/icons?i=next,react,typescript,javascript,tailwind,html,css,nodejs" /><br><br>
 
 - **Next.js & React:** Leverage the power of these modern frameworks to ensure seamless navigation and dynamic user interactions.
 
