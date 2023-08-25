@@ -13,8 +13,9 @@ Luxurious Gears is a premier platform I've meticulously designed and developed t
 
 <br>
 
-<img width="750" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/3dac77b1-524b-4204-80a3-bc225cff364e" alt="Luxurious Gears" />
-<img width="750" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/707bbff5-c116-4e7a-aaee-f10a4306c44e" alt="Luxurious Gears" />
+<img width="800" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/3dac77b1-524b-4204-80a3-bc225cff364e" alt="Luxurious Gears" />
+<br><br>
+<img width="800" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/707bbff5-c116-4e7a-aaee-f10a4306c44e" alt="Luxurious Gears" />
 
 <br><br>
 [![Website](https://img.shields.io/badge/Visit_Luxurious_Gears_today_and_indulge_in_the_allure_of_automotive_excellenceLuxurious_Gears-darkgreen)](https://luxurious-gears.vercel.app/)
