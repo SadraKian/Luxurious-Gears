@@ -13,8 +13,8 @@ Luxurious Gears is a premier platform I've meticulously designed and developed t
 
 <br>
 
-<img width="500" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/3dac77b1-524b-4204-80a3-bc225cff364e" alt="Luxurious Gears" />
-<img width="500" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/707bbff5-c116-4e7a-aaee-f10a4306c44e" alt="Luxurious Gears" />
+<img width="750" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/3dac77b1-524b-4204-80a3-bc225cff364e" alt="Luxurious Gears" />
+<img width="750" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/707bbff5-c116-4e7a-aaee-f10a4306c44e" alt="Luxurious Gears" />
 
 <br><br>
 [![Website](https://img.shields.io/badge/Visit_Luxurious_Gears_today_and_indulge_in_the_allure_of_automotive_excellenceLuxurious_Gears-darkgreen)](https://luxurious-gears.vercel.app/)
@@ -56,5 +56,7 @@ Follow these steps to run Luxurious Gears locally:
 1. Clone this repository: `git clone https://github.com/YourUsername/LuxuriousGears.git`
 2. Navigate to the project directory: `cd LuxuriousGears`
 3. Install dependencies: `npm install`
-4. Start the development server: `npm run dev`
-5. Open your browser and visit: `http://localhost:3000`
+4. You need to create an account in [Rapid API website](href="https://rapidapi.com/hub).
+5. Subscribe to [Cars by API-ninjas](https://rapidapi.com/apininjas/api/cars-by-api-ninjas) and use your X-RapidAPI-Key inside /utils/index.ts file for cars information. [For more information follow their guide](https://rapidapi.com/apininjas/api/cars-by-api-ninjas)
+7. Start the development server: `npm run dev`
+8. Open your browser and visit: `http://localhost:3000`
