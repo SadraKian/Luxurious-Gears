@@ -2,9 +2,6 @@
 
 Welcome to Luxurious Gears - Your Gateway to Exquisite Automobiles!
 
-[![Website](https://img.shields.io/badge/Visit_Luxurious_Gears_Website-darkgreen)](https://luxurious-gears.vercel.app/)
-
-
 Luxurious Gears is a premier platform I've meticulously designed and developed to showcase a curated collection of exceptional automobiles. This project, carefully crafted with my front-end expertise, demonstrates the convergence of cutting-edge technologies and elegant design.
 <br>
 
@@ -18,8 +15,6 @@ Luxurious Gears is a premier platform I've meticulously designed and developed t
 <img width="800" src="https://github.com/SadraKian/Luxurious-Gears/assets/128605953/707bbff5-c116-4e7a-aaee-f10a4306c44e" alt="Luxurious Gears" />
 
 <br><br>
-[![Website](https://img.shields.io/badge/Visit_Luxurious_Gears_today_and_indulge_in_the_allure_of_automotive_excellenceLuxurious_Gears-darkgreen)](https://luxurious-gears.vercel.app/)
-
 ---
 ## Features
 
